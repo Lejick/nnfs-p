@@ -2,14 +2,6 @@ import numpy as np
 import nnfs
 from nnfs.datasets import spiral_data
 
-nnfs.init()
-
-data = [[1, 2, 3, 2.5],
-        [2.0, 5.0, -1.0, 2.0],
-        [-1.5, 2.7, 3.3, -0.8]]
-X = np.array(data, dtype=np.float32)
-
-X, y = spiral_data(100, 3)
 
 
 class Layer_Dense:
@@ -32,7 +24,7 @@ class Activation_Softmax:
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
         self.output = probabilities
 
-
+nnfs.init()
 X, y = spiral_data(100,3)
 dense1 = Layer_Dense(2, 3)
 activation1 = Activation_ReLU()
